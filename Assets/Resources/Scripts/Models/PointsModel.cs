@@ -3,7 +3,7 @@ namespace Resources.Scripts.Models
     public class PointsModel
     {
         public int Value { get; private set; }
-        public bool OnValueChanged { get; private set; }
+        public bool OnValueChanged { get; private set; } = true;
 
         public void UpdateState()
         {

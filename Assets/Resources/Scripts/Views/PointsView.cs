@@ -21,7 +21,7 @@ namespace Resources.Scripts.Views
             _pointsText.text = amount.ToString();
         }
 
-        public void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionEnter2D(Collision2D other)
         {
             Provider = other.gameObject.GetComponent<PointsProvider>();
         }
