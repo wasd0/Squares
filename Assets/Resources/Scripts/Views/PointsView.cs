@@ -11,7 +11,7 @@ namespace Resources.Scripts.Views
 
         public PointsProvider Provider { get; private set; }
 
-        public void UpdateState()
+        public void ResetProvider()
         {
             Provider = null;
         }

@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace Resources.Scripts.Models
 {
-    public class PlayerModel
+    public class PlayerModel : IModel
     {
         private readonly float _speed;
         
         public Vector2 Position { get; private set; }
-        public bool OnPositionChanged { get; private set; } = true;
+        public bool PositionChangedFlag { get; private set; } = true;
 
         public PlayerModel(Vector2 startPosition, float speed)
         {
@@ -15,16 +15,16 @@ namespace Resources.Scripts.Models
             _speed = speed;
         }
 
-        public void UpdateState()
+        public void ResetFlag()
         {
-            OnPositionChanged = false;
+            PositionChangedFlag = false;
         }
 
-        public void AddPosition(float axis, float deltaTime)
+        public void SetPosition(float axis, float deltaTime)
         {
-            float newX = Position.x + (axis * _speed * deltaTime);
+            float newX = Position.x + axis * _speed * deltaTime;
             Position = new Vector2(newX, Position.y);
-            OnPositionChanged = true;
+            PositionChangedFlag = true;
         }
     }
 }

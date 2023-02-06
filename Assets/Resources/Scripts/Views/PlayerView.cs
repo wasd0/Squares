@@ -4,16 +4,26 @@ namespace Resources.Scripts.Views
 {
     public class PlayerView : MonoBehaviour
     {
-        public float HorizontalAxis { get; private set; }
+        private float _horizontalAxis;
+
+        public float HorizontalAxis
+        {
+            get
+            {
+                _horizontalAxis = Input.touchCount > 0 ? Input.GetTouch(0).
+                    deltaPosition.normalized.x : 0f;
+                return _horizontalAxis;
+            }
+        }
 
         public void SetPosition(Vector2 position)
         {
             transform.position = position;
         }
-        
-        private void Update()
+
+        public void ResetAxis()
         {
-            HorizontalAxis = Input.GetAxis("Horizontal");
+            _horizontalAxis = 0f;
         }
     }
 }

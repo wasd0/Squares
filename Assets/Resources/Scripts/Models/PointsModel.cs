@@ -1,19 +1,19 @@
 namespace Resources.Scripts.Models
 {
-    public class PointsModel
+    public class PointsModel : IModel
     {
         public int Value { get; private set; }
-        public bool OnValueChanged { get; private set; } = true;
+        public bool ValueChangedFlag { get; private set; } = true;
 
-        public void UpdateState()
+        public void ResetFlag()
         {
-            OnValueChanged = false;
+            ValueChangedFlag = false;
         }
 
-        public void Add(int amount)
+        public void AddValue(int amount)
         {
             Value += amount;
-            OnValueChanged = true;
+            ValueChangedFlag = true;
         }
     }
 }

@@ -16,16 +16,17 @@ namespace Resources.Scripts.Presenters
         }
 
         public void Update()
-        {
+        { 
             if (_view.HorizontalAxis != 0)
-                _model.AddPosition(_view.HorizontalAxis, Time.deltaTime);
-            if (_model.OnPositionChanged)
+                _model.SetPosition(_view.HorizontalAxis, Time.deltaTime);
+            if (_model.PositionChangedFlag)
                 _view.SetPosition(_model.Position);
         }
 
         public void LateUpdate()
         {
-            _model.UpdateState();
+            _model.ResetFlag();
+            _view.ResetAxis();
         }
     }
 }

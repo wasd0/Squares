@@ -12,26 +12,32 @@ namespace Resources.Scripts.MonoBehaviours
         private PointsView _pointsView;
 
         [SerializeField]
-        private PlayerView _playerView;
-
-        [SerializeField]
         private SceneData _sceneData;
 
         [SerializeField]
         private PlayerStaticData _playerStaticData;
 
-        private PointsPresenter _pointsPresenter;
+
         private PointsModel _pointsModel;
+        private PointsPresenter _pointsPresenter;
 
         private PlayerModel _playerModel;
+        private PlayerView _playerView;
         private PlayerPresenter _playerPresenter;
 
         private void Awake()
         {
+            InstantiatePlayer();
             _pointsModel = new PointsModel();
             _pointsPresenter = new PointsPresenter(_pointsModel, _pointsView);
+        }
 
-            _playerModel = new PlayerModel(_sceneData.PlayerSpawn.position, _playerStaticData.MovementSpeed);
+        private void InstantiatePlayer()
+        {
+            Vector2 spawnPos = _sceneData.PlayerSpawn.position;
+            _playerView = Instantiate(_playerStaticData.PlayerPrefab, spawnPos, Quaternion.identity, null).
+                GetComponent<PlayerView>();
+            _playerModel = new PlayerModel(spawnPos, _playerStaticData.MovementSpeed);
             _playerPresenter = new PlayerPresenter(_playerModel, _playerView);
         }
 

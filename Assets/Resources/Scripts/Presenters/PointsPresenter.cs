@@ -16,16 +16,16 @@ namespace Resources.Scripts.Presenters
 
         public void Update()
         {
-            if (_view.Provider != null)
-                _model.Add(_view.Provider.Points);
-            if (_model.OnValueChanged)
+            if (_view.Provider)
+                _model.AddValue(_view.Provider.Points);
+            if (_model.ValueChangedFlag)
                 _view.SetPoints(_model.Value);
         }
 
         public void LateUpdate()
         {
-            _model.UpdateState();
-            _view.UpdateState();
+            _model.ResetFlag();
+            _view.ResetProvider();
         }
     }
 }
