@@ -4,6 +4,9 @@ namespace Resources.Scripts.Views
 {
     public class PlayerView : MonoBehaviour
     {
+        [SerializeField]
+        private GameObject _playerPrefab;
+        
         private float _horizontalAxis;
 
         public float HorizontalAxis
@@ -18,7 +21,7 @@ namespace Resources.Scripts.Views
 
         public void SetPosition(Vector2 position)
         {
-            transform.position = position;
+            _playerPrefab.transform.position = position;
         }
 
         public void ResetAxis()

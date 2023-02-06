@@ -3,12 +3,12 @@ using Resources.Scripts.Views;
 
 namespace Resources.Scripts.Presenters
 {
-    public class PointPresenter
+    public class ScorePresenter
     {
-        private readonly PointModel _model;
-        private readonly PointView _view;
+        private readonly ScoreModel _model;
+        private readonly ScoreView _view;
 
-        public PointPresenter(PointModel model, PointView view)
+        public ScorePresenter(ScoreModel model, ScoreView view)
         {
             _model = model;
             _view = view;

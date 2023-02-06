@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Resources.Scripts.Views
 {
-    public class PointView : MonoBehaviour
+    public class ScoreView : MonoBehaviour
     {
         [SerializeField]
         private TMP_Text _pointsText;
@@ -21,7 +21,7 @@ namespace Resources.Scripts.Views
             _pointsText.text = amount.ToString();
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             Provider = other.gameObject.GetComponent<PointsProvider>();
         }

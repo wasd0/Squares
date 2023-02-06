@@ -10,39 +10,51 @@ namespace Resources.Scripts.MonoBehaviours
     public class GameCore : MonoBehaviour
     {
         [SerializeField]
-        private PointView _pointView;
+        private ScoreView _scoreView;
 
         [SerializeField]
         private SceneData _sceneData;
 
         [SerializeField]
+        private ItemView _itemView;
+
+        [SerializeField]
         private PlayerStaticData _playerStaticData;
-        
-        private PointModel _pointModel;
-        private PointPresenter _pointPresenter;
+
+        private ScoreModel _scoreModel;
+        private ScorePresenter _scorePresenter;
 
         private PlayerModel _playerModel;
         private PlayerView _playerView;
         private PlayerPresenter _playerPresenter;
 
+        private ItemModel _itemModel;
+        private ItemPresenter _itemPresenter;
+
         private void Awake()
         {
             InstantiatePlayer();
             Application.targetFrameRate = GameStaticData.FpsLimit;
-            _pointModel = new PointModel();
-            _pointPresenter = new PointPresenter(_pointModel, _pointView);
+
+            _scoreModel = new ScoreModel();
+            _scorePresenter = new ScorePresenter(_scoreModel, _scoreView);
+
+            _itemModel = new ItemModel(_sceneData.ItemSpawn.position, _sceneData.ItemEndPoint.position);
+            _itemPresenter = new ItemPresenter(_itemModel, _itemView, _sceneData.ItemsFloatMultiplier);
         }
 
         private void Update()
         {
-            _pointPresenter.Update();
+            _scorePresenter.Update();
             _playerPresenter.Update();
+            _itemPresenter.Update();
         }
 
         private void LateUpdate()
         {
-            _pointPresenter.LateUpdate();
+            _scorePresenter.LateUpdate();
             _playerPresenter.LateUpdate();
+            _itemPresenter.LateUpdate();
         }
 
         private void InstantiatePlayer()

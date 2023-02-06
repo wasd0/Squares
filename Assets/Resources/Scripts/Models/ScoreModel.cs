@@ -1,6 +1,6 @@
 namespace Resources.Scripts.Models
 {
-    public class PointModel : IModel
+    public class ScoreModel : IModel
     {
         public int Value { get; private set; }
         public bool ValueChangedFlag { get; private set; } = true;

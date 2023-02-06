@@ -8,12 +8,12 @@ namespace Resources.Scripts.MonoBehaviours
     {
         public void LoadLevel()
         {
-            SceneManager.LoadScene(GameStaticData.LevelIndex);
+            SceneManager.LoadScene(GameStaticData.LevelSceneIndex);
         }
 
         public void LoadMenu()
         {
-            SceneManager.LoadScene(GameStaticData.MainMenuIndex);
+            SceneManager.LoadScene(GameStaticData.MainSceneIndex);
         }
     }
 }
