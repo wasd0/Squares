@@ -3,12 +3,12 @@ using Resources.Scripts.Views;
 
 namespace Resources.Scripts.Presenters
 {
-    public class PointsPresenter
+    public class PointPresenter
     {
-        private readonly PointsModel _model;
-        private readonly PointsView _view;
+        private readonly PointModel _model;
+        private readonly PointView _view;
 
-        public PointsPresenter(PointsModel model, PointsView view)
+        public PointPresenter(PointModel model, PointView view)
         {
             _model = model;
             _view = view;

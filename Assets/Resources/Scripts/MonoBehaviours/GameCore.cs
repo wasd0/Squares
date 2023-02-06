@@ -1,3 +1,4 @@
+using Resources.Data;
 using Resources.Scripts.Models;
 using Resources.Scripts.Presenters;
 using Resources.Scripts.ScriptableObjects;
@@ -9,17 +10,16 @@ namespace Resources.Scripts.MonoBehaviours
     public class GameCore : MonoBehaviour
     {
         [SerializeField]
-        private PointsView _pointsView;
+        private PointView _pointView;
 
         [SerializeField]
         private SceneData _sceneData;
 
         [SerializeField]
         private PlayerStaticData _playerStaticData;
-
-
-        private PointsModel _pointsModel;
-        private PointsPresenter _pointsPresenter;
+        
+        private PointModel _pointModel;
+        private PointPresenter _pointPresenter;
 
         private PlayerModel _playerModel;
         private PlayerView _playerView;
@@ -28,8 +28,21 @@ namespace Resources.Scripts.MonoBehaviours
         private void Awake()
         {
             InstantiatePlayer();
-            _pointsModel = new PointsModel();
-            _pointsPresenter = new PointsPresenter(_pointsModel, _pointsView);
+            Application.targetFrameRate = GameStaticData.FpsLimit;
+            _pointModel = new PointModel();
+            _pointPresenter = new PointPresenter(_pointModel, _pointView);
+        }
+
+        private void Update()
+        {
+            _pointPresenter.Update();
+            _playerPresenter.Update();
+        }
+
+        private void LateUpdate()
+        {
+            _pointPresenter.LateUpdate();
+            _playerPresenter.LateUpdate();
         }
 
         private void InstantiatePlayer()
@@ -39,18 +52,6 @@ namespace Resources.Scripts.MonoBehaviours
                 GetComponent<PlayerView>();
             _playerModel = new PlayerModel(spawnPos, _playerStaticData.MovementSpeed);
             _playerPresenter = new PlayerPresenter(_playerModel, _playerView);
-        }
-
-        private void Update()
-        {
-            _pointsPresenter.Update();
-            _playerPresenter.Update();
-        }
-
-        private void LateUpdate()
-        {
-            _pointsPresenter.LateUpdate();
-            _playerPresenter.LateUpdate();
         }
     }
 }
