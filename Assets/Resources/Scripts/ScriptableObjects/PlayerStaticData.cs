@@ -12,8 +12,13 @@ namespace Resources.Scripts.ScriptableObjects
         [Header("Movement")]
         [SerializeField]
         private float _movementSpeed;
+        
+        [Header("Health")]
+        [SerializeField]
+        private float _health;
 
         public GameObject PlayerPrefab => _playerPrefab; 
         public float MovementSpeed => _movementSpeed;
+        public float Health => _health;
     }
 }
