@@ -7,7 +7,6 @@ namespace Resources.Scripts.Models
         private float _health;
         public float Health => _health;
         public bool HealthChangedFlag { get; private set; } = true;
-        public bool HealthIsNullFlag { get; private set; }
 
         public HealthModel(float health)
         {
@@ -23,8 +22,6 @@ namespace Resources.Scripts.Models
         {
             healthHandle.Invoke(ref _health);
             HealthChangedFlag = true;
-            if (_health <= 0)
-                HealthIsNullFlag = true;
         }
     }
 }

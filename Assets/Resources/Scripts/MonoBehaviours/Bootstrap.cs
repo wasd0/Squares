@@ -34,15 +34,18 @@ namespace Resources.Scripts.MonoBehaviours
             var scoreView = player.GetComponent<ScoreView>();
             var healthView = player.GetComponent<HealthView>();
 
-            scoreView.Init(_sceneData.ScoreText);
-            healthView.Init(_sceneData.HealthText);
-            
-            _startButton.gameObject.SetActive(false);
+
+            _player = new PlayerPresenter(playerView, spawnPos, _playerData.MovementSpeed);
             _score = new ScorePresenter(scoreView);
             _health = new HealthPresenter(healthView, _playerData.Health);
-            _player = new PlayerPresenter(playerView, spawnPos, _playerData.MovementSpeed);
             _itemSpawner = new ItemSpawner(_sceneData);
+            _startButton.gameObject.SetActive(false);
+            _core.gameObject.SetActive(true);
+
+            scoreView.Init(_sceneData.ScoreText);
+            healthView.Init(_sceneData.HealthText);
             _core.Init(_player, _score, _health, _itemSpawner);
+
             Destroy(gameObject);
         }
     }

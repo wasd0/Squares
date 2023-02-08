@@ -2,6 +2,7 @@ using Resources.Data;
 using Resources.Scripts.Infrastructure;
 using Resources.Scripts.Presenters;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Resources.Scripts.MonoBehaviours
 {
@@ -11,26 +12,28 @@ namespace Resources.Scripts.MonoBehaviours
         private ScorePresenter _score;
         private PlayerPresenter _player;
         private HealthPresenter _health;
-        private bool _initFlag;
-
-        private void Awake()
-        {
-            Application.targetFrameRate = GameStaticData.FpsLimit;
-        }
 
         public void Init(PlayerPresenter player, ScorePresenter score, HealthPresenter health, ItemSpawner spawner)
         {
+            Application.targetFrameRate = GameStaticData.FpsLimit;
             _player = player;
             _score = score;
             _health = health;
             _itemSpawner = spawner;
             StartCoroutine(_itemSpawner.Spawn());
-            _initFlag = true;
+        }
+
+        private void LoadLoseScene()
+        {
+            _player = null;
+            _score = null;
+            _health = null;
+            _itemSpawner = null;
+            SceneManager.LoadScene(GameStaticData.LoseSceneIndex);
         }
 
         private void Update()
         {
-            if (!_initFlag) return;
             _score.Update();
             _player.Update();
             _health.Update();
@@ -39,13 +42,14 @@ namespace Resources.Scripts.MonoBehaviours
 
         private void LateUpdate()
         {
-            if (!_initFlag) return;
             _score.LateUpdate();
             _player.LateUpdate();
             _health.LateUpdate();
             _itemSpawner.LateUpdate();
             if (_itemSpawner.AllSpawnedFlag)
                 StartCoroutine(_itemSpawner.Respawn());
+            if (_health.HealthIsNullFlag)
+                LoadLoseScene();
         }
     }
 }

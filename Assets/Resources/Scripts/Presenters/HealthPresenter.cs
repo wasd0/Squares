@@ -8,6 +8,8 @@ namespace Resources.Scripts.Presenters
         private readonly HealthModel _model;
         private readonly HealthView _view;
 
+        public bool HealthIsNullFlag { get; private set; }
+
         public HealthPresenter(HealthView view, float health)
         {
             _model = new HealthModel(health);
@@ -20,6 +22,8 @@ namespace Resources.Scripts.Presenters
                 _model.SetHealth(_view.Handler.HandleHealth);
             if (_model.HealthChangedFlag)
                 _view.SetHealth(_model.Health);
+            if (_model.Health <= 0f)
+                HealthIsNullFlag = true;
         }
 
         public void LateUpdate()
