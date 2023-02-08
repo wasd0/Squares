@@ -8,9 +8,9 @@ namespace Resources.Scripts.Presenters
         private readonly ScoreModel _model;
         private readonly ScoreView _view;
 
-        public ScorePresenter(ScoreModel model, ScoreView view)
+        public ScorePresenter(ScoreView view)
         {
-            _model = model;
+            _model = new ScoreModel();
             _view = view;
         }
 

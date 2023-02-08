@@ -37,10 +37,7 @@ namespace Resources.Scripts.MonoBehaviours
         [SerializeField]
         [Range(0.5f, 10)]
         private float _spawnDelaySecs;
-
-        [SerializeField]
-        private float _respawnDelaySecs;
-
+        
         [SerializeField]
         private Transform[] _itemSpawnPoints;
 
@@ -54,7 +51,6 @@ namespace Resources.Scripts.MonoBehaviours
         public GameObject ObstaclePrefab => _obstaclePrefab;
         public int ItemsCount => _itemsCount;
         public float SpawnDelaySecs => _spawnDelaySecs;
-        public float RespawnDelaySecs => _respawnDelaySecs;
         public Transform[] ItemSpawnPoints => _itemSpawnPoints;
     }
 }

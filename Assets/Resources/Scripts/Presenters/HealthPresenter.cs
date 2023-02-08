@@ -8,9 +8,9 @@ namespace Resources.Scripts.Presenters
         private readonly HealthModel _model;
         private readonly HealthView _view;
 
-        public HealthPresenter(HealthModel model, HealthView view)
+        public HealthPresenter(HealthView view, float health)
         {
-            _model = model;
+            _model = new HealthModel(health);
             _view = view;
         }
 

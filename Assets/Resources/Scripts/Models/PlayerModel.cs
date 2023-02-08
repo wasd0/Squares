@@ -5,7 +5,6 @@ namespace Resources.Scripts.Models
     public class PlayerModel
     {
         private readonly float _movementSpeed;
-        
         public Vector2 Position { get; private set; }
         public bool PositionChangedFlag { get; private set; } = true;
 

@@ -618,9 +618,8 @@ MonoBehaviour:
   _obstaclePrefab: {fileID: 3473986928393435057, guid: b810ea5a99ec8ca44948b7fde0263d0d, type: 3}
   _healthText: {fileID: 1029079647}
   _scoreText: {fileID: 1583683523}
-  _itemsCount: 10
+  _itemsCount: 1
   _spawnDelaySecs: 1
-  _respawnDelaySecs: 5
   _itemSpawnPoints:
   - {fileID: 852157534}
   - {fileID: 232316017}

@@ -12,7 +12,7 @@ namespace Resources.Scripts.ScriptableObjects
         [Header("Movement")]
         [SerializeField]
         private float _movementSpeed;
-        
+
         [Header("Health")]
         [SerializeField]
         private float _health;

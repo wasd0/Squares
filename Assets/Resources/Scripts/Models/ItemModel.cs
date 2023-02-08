@@ -4,11 +4,10 @@ namespace Resources.Scripts.Models
 {
     public class ItemModel
     {
-        public Vector2 Position { get; private set; }
         private readonly Vector2 _endPosition;
-
+        
+        public Vector2 Position { get; private set; }
         public bool PositionChangedFlag { get; private set; } = true;
-
         public bool PositionFinishedFlag { get; private set; }
 
         public ItemModel(Vector2 startPosition, Vector2 endPosition)

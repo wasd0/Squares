@@ -9,16 +9,15 @@ namespace Resources.Scripts.Presenters
         private readonly PlayerModel _model;
         private readonly PlayerView _view;
 
-        public PlayerPresenter(PlayerModel model, PlayerView view)
+        public PlayerPresenter(PlayerView view, Vector2 start, float movementSpeed)
         {
-            _model = model;
+            _model = new PlayerModel(start, movementSpeed);
             _view = view;
         }
 
         public void Update()
-        { 
-            if (_view.HorizontalAxis != 0)
-                _model.Accelerate(_view.HorizontalAxis, Time.deltaTime);
+        {
+            _model.Accelerate((int) _view.HorizontalAxis, Time.deltaTime);
             if (_model.PositionChangedFlag)
                 _view.SetPosition(_model.Position);
         }

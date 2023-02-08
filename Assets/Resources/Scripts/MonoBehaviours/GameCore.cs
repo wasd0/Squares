@@ -1,6 +1,6 @@
 using Resources.Data;
-using Resources.Scripts.Applications;
 using Resources.Scripts.Infrastructure;
+using Resources.Scripts.Presenters;
 using Resources.Scripts.ScriptableObjects;
 using Resources.Scripts.Views;
 using UnityEngine;
@@ -16,9 +16,9 @@ namespace Resources.Scripts.MonoBehaviours
         private PlayerStaticData _playerData;
 
         private ItemSpawner _itemSpawner;
-        private ScoreApplication _scoreApplication;
-        private PlayerApplication _playerApplication;
-        private HealthApplication _healthApplication;
+        private ScorePresenter _score;
+        private PlayerPresenter _player;
+        private HealthPresenter _health;
 
         private void Awake()
         {
@@ -34,27 +34,29 @@ namespace Resources.Scripts.MonoBehaviours
             var player = Instantiate(_playerData.PlayerPrefab, spawnPos, Quaternion.identity, null);
             var playerView = player.GetComponent<PlayerView>();
             var scoreView = player.GetComponent<ScoreView>();
-            scoreView.Init(_sceneData.ScoreText);
             var healthView = player.GetComponent<HealthView>();
+            
+            scoreView.Init(_sceneData.ScoreText);
             healthView.Init(_sceneData.HealthText);
-            _scoreApplication = new ScoreApplication(scoreView);
-            _healthApplication = new HealthApplication(_playerData.Health, healthView);
-            _playerApplication = new PlayerApplication(playerView, spawnPos, _playerData.MovementSpeed);
+            
+            _score = new ScorePresenter(scoreView);
+            _health = new HealthPresenter(healthView, _playerData.Health);
+            _player = new PlayerPresenter(playerView, spawnPos, _playerData.MovementSpeed);
         }
 
         private void Update()
         {
-            _scoreApplication.Update();
-            _playerApplication.Update();
-            _healthApplication.Update();
+            _score.Update();
+            _player.Update();
+            _health.Update();
             _itemSpawner.Update();
         }
 
         private void LateUpdate()
         {
-            _scoreApplication.LateUpdate();
-            _playerApplication.LateUpdate();
-            _healthApplication.LateUpdate(); 
+            _score.LateUpdate();
+            _player.LateUpdate();
+            _health.LateUpdate();
             _itemSpawner.LateUpdate();
         }
     }
