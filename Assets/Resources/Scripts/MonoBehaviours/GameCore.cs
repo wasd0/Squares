@@ -24,7 +24,7 @@ namespace Resources.Scripts.MonoBehaviours
         {
             Application.targetFrameRate = GameStaticData.FpsLimit;
             _itemSpawner = new ItemSpawner(_sceneData);
-            StartCoroutine(_itemSpawner.StartSpawn());
+            StartCoroutine(_itemSpawner.Spawn());
             InitializePlayer();
         }
 
@@ -58,6 +58,8 @@ namespace Resources.Scripts.MonoBehaviours
             _player.LateUpdate();
             _health.LateUpdate();
             _itemSpawner.LateUpdate();
+            if (_itemSpawner.AllSpawnedFlag)
+                StartCoroutine(_itemSpawner.Respawn());
         }
     }
 }

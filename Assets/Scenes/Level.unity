@@ -619,7 +619,8 @@ MonoBehaviour:
   _healthText: {fileID: 1029079647}
   _scoreText: {fileID: 1583683523}
   _itemsCount: 1
-  _spawnDelaySecs: 1
+  _spawnDelaySecs: 0.5
+  _respawnDelaySec: 1
   _itemSpawnPoints:
   - {fileID: 852157534}
   - {fileID: 232316017}

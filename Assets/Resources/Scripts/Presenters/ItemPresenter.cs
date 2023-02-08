@@ -18,12 +18,19 @@ namespace Resources.Scripts.Presenters
             _fallMultiplier = fallMultiplier;
         }
 
+        public void Reset(Vector2 spawn, Vector2 end)
+        {
+            _model.ResetPosition(spawn, end);
+            _view.gameObject.SetActive(true);
+        }
+
         public void Update()
         {
             if (!_model.PositionFinishedFlag)
                 _model.AccelerateFall(GameStaticData.Gravitation, _fallMultiplier, Time.deltaTime);
             if (_model.PositionChangedFlag)
-                _view.SetPosition(_model.Position); }
+                _view.SetPosition(_model.Position);
+        }
 
         public void LateUpdate()
         {

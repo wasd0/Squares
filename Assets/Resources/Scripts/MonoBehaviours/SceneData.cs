@@ -5,10 +5,6 @@ namespace Resources.Scripts.MonoBehaviours
 {
     public class SceneData : MonoBehaviour
     {
-        [SerializeField]
-        [Range(0, 1)]
-        private float _itemsFallMultiplier;
-
         [Header("Player")]
         [SerializeField]
         private Transform _playerSpawn;
@@ -16,6 +12,10 @@ namespace Resources.Scripts.MonoBehaviours
         [Header("Item")]
         [SerializeField]
         private Transform _itemEndPoint;
+
+        [SerializeField]
+        [Range(0, 1)]
+        private float _itemsFallMultiplier;
 
         [SerializeField]
         private GameObject _bonusPrefab;
@@ -32,12 +32,17 @@ namespace Resources.Scripts.MonoBehaviours
 
         [Header("Spawner")]
         [SerializeField]
+        [Range(10, 100)]
         private int _itemsCount;
-
+        
         [SerializeField]
         [Range(0.5f, 10)]
         private float _spawnDelaySecs;
-        
+
+        [SerializeField]
+        [Range(0.5f, 3)]
+        private float _respawnDelaySec;
+
         [SerializeField]
         private Transform[] _itemSpawnPoints;
 
@@ -52,5 +57,6 @@ namespace Resources.Scripts.MonoBehaviours
         public int ItemsCount => _itemsCount;
         public float SpawnDelaySecs => _spawnDelaySecs;
         public Transform[] ItemSpawnPoints => _itemSpawnPoints;
+        public float RespawnDelaySec => _respawnDelaySec;
     }
 }
