@@ -1,12 +1,13 @@
 namespace Resources.Scripts.Models
 {
     public delegate void HealthHandle(ref float health);
-    
-    public class HealthModel 
+
+    public class HealthModel
     {
         private float _health;
         public float Health => _health;
         public bool HealthChangedFlag { get; private set; } = true;
+        public bool HealthIsNullFlag { get; private set; }
 
         public HealthModel(float health)
         {
@@ -17,11 +18,13 @@ namespace Resources.Scripts.Models
         {
             HealthChangedFlag = false;
         }
-        
+
         public void SetHealth(HealthHandle healthHandle)
         {
             healthHandle.Invoke(ref _health);
             HealthChangedFlag = true;
+            if (_health <= 0)
+                HealthIsNullFlag = true;
         }
     }
 }

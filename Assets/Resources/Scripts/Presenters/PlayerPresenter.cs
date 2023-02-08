@@ -17,7 +17,7 @@ namespace Resources.Scripts.Presenters
 
         public void Update()
         {
-            _model.Accelerate((int) _view.HorizontalAxis, Time.deltaTime);
+            _model.Accelerate(_view.HorizontalAxis, Time.deltaTime);
             if (_model.PositionChangedFlag)
                 _view.SetPosition(_model.Position);
         }

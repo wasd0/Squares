@@ -7,7 +7,7 @@ namespace Resources.Scripts.MonoBehaviours
         [SerializeField]
         private float _amount;
 
-        public float Amount => _amount;
+        protected float Amount => _amount;
 
         public abstract void HandleHealth(ref float health);
     }

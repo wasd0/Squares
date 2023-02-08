@@ -42,8 +42,8 @@ namespace Resources.Scripts.Infrastructure
 
         public IEnumerator Respawn()
         {
-            yield return new WaitForSeconds(_sceneData.RespawnDelaySec);
             AllSpawnedFlag = false;
+            yield return new WaitForSeconds(_sceneData.RespawnDelaySec);
             var spawnPoints = _sceneData.ItemSpawnPoints;
 
             foreach (var i in _items)
