@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Resources.Scripts.Models
 {
-    public class PlayerModel : IModel
+    public class PlayerModel
     {
         private readonly float _movementSpeed;
         

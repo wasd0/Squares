@@ -10,7 +10,7 @@ namespace Resources.Scripts.Presenters
         private readonly ItemModel _model;
         private readonly ItemView _view;
         private readonly float _fallMultiplier;
-        
+
         public ItemPresenter(ItemModel model, ItemView view, float fallMultiplier)
         {
             _model = model;
@@ -20,7 +20,7 @@ namespace Resources.Scripts.Presenters
 
         public void Update()
         {
-            if (_view.PositionY >= _model.EndPosition.y)
+            if (!_model.PositionFinishedFlag)
                 _model.AccelerateFall(GameStaticData.Gravitation, _fallMultiplier, Time.deltaTime);
             if (_model.PositionChangedFlag)
                 _view.SetPosition(_model.Position);
@@ -29,7 +29,6 @@ namespace Resources.Scripts.Presenters
         public void LateUpdate()
         {
             _model.ResetFlag();
-            _view.ResetPosition();
         }
     }
 }

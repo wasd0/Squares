@@ -2,7 +2,7 @@ namespace Resources.Scripts.Models
 {
     public delegate void HealthHandle(ref float health);
     
-    public class HealthModel
+    public class HealthModel 
     {
         private float _health;
         public float Health => _health;
