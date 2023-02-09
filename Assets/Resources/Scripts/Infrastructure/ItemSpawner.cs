@@ -33,7 +33,7 @@ namespace Resources.Scripts.Infrastructure
                 int pointIndex = Random.Range(0, spawnPoints.Length);
                 Vector2 spawn = spawnPoints[pointIndex].position;
                 counter++;
-                SpawnRandom(spawn);
+                SpawnRandomItem(spawn);
                 yield return new WaitForSeconds(_sceneData.SpawnDelaySecs);
             }
 
@@ -46,12 +46,12 @@ namespace Resources.Scripts.Infrastructure
             yield return new WaitForSeconds(_sceneData.RespawnDelaySec);
             var spawnPoints = _sceneData.ItemSpawnPoints;
 
-            foreach (var i in _items)
+            foreach (var item in _items)
             {
                 yield return new WaitForSeconds(_sceneData.SpawnDelaySecs);
                 int pointIndex = Random.Range(0, spawnPoints.Length);
                 Vector2 spawn = spawnPoints[pointIndex].position;
-                i.Reset(spawn, _sceneData.ItemEndPoint.position);
+                item.Reset(spawn, _sceneData.ItemEndPoint.position);
             }
 
             AllSpawnedFlag = true;
@@ -73,7 +73,7 @@ namespace Resources.Scripts.Infrastructure
             }
         }
 
-        private void SpawnRandom(Vector2 spawn)
+        private void SpawnRandomItem(Vector2 spawn)
         {
             int prefabNumber = Random.Range(0, PREFABS_COUNT);
             var prefab = prefabNumber == 1 ? _sceneData.BonusPrefab : _sceneData.ObstaclePrefab;

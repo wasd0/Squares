@@ -1,4 +1,4 @@
-using Resources.Data;
+using Resources.Scripts.Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

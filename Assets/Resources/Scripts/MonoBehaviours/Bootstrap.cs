@@ -1,9 +1,8 @@
+using Resources.Scripts.Data;
 using Resources.Scripts.Infrastructure;
 using Resources.Scripts.Presenters;
-using Resources.Scripts.ScriptableObjects;
 using Resources.Scripts.Views;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Resources.Scripts.MonoBehaviours
 {
@@ -14,12 +13,9 @@ namespace Resources.Scripts.MonoBehaviours
 
         [SerializeField]
         private SceneData _sceneData;
-
+        
         [SerializeField]
-        private Button _startButton;
-
-        [SerializeField]
-        private PlayerStaticData _playerData;
+        private PlayerData _playerData;
 
         private PlayerPresenter _player;
         private ScorePresenter _score;
@@ -39,7 +35,6 @@ namespace Resources.Scripts.MonoBehaviours
             _score = new ScorePresenter(scoreView);
             _health = new HealthPresenter(healthView, _playerData.Health);
             _itemSpawner = new ItemSpawner(_sceneData);
-            _startButton.gameObject.SetActive(false);
             _core.gameObject.SetActive(true);
 
             scoreView.Init(_sceneData.ScoreText);

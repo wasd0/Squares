@@ -1,4 +1,4 @@
-namespace Resources.Data
+namespace Resources.Scripts.Data
 {
     public static class GameStaticData
     {

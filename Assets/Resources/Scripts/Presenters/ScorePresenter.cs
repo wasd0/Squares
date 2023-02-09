@@ -8,6 +8,8 @@ namespace Resources.Scripts.Presenters
         private readonly ScoreModel _model;
         private readonly ScoreView _view;
 
+        public int LastScore => _model.Value;
+        
         public ScorePresenter(ScoreView view)
         {
             _model = new ScoreModel();

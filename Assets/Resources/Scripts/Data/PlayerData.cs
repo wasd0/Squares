@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace Resources.Scripts.ScriptableObjects
+namespace Resources.Scripts.Data
 {
     [CreateAssetMenu(fileName = "Player", menuName = "Player Data")]
-    public class PlayerStaticData : ScriptableObject
+    public class PlayerData : ScriptableObject
     {
         [Header("Prefab")]
         [SerializeField]

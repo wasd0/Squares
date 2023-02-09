@@ -7,18 +7,18 @@ namespace Resources.Scripts.Infrastructure
     public class ItemPresenterFactory
     {
         private readonly Vector2 _itemEndPoint;
-        private readonly float _fallMultiply;
+        private readonly float _fallMultiplier;
 
-        public ItemPresenterFactory(Vector2 itemEndPoint, float fallMultiply)
+        public ItemPresenterFactory(Vector2 itemEndPoint, float fallMultiplier)
         {
             _itemEndPoint = itemEndPoint;
-            _fallMultiply = fallMultiply;
+            _fallMultiplier = fallMultiplier;
         }
 
         public ItemPresenter Create(GameObject instance, Vector2 spawn)
         {
             var view = instance.GetComponent<ItemView>();
-            return new ItemPresenter(view, spawn, _itemEndPoint, _fallMultiply);
+            return new ItemPresenter(view, spawn, _itemEndPoint, _fallMultiplier);
         }
     }
 }

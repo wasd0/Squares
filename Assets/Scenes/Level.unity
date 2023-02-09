@@ -583,7 +583,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _core: {fileID: 1256553380}
   _sceneData: {fileID: 1224497690}
-  _startButton: {fileID: 1868824566}
   _playerData: {fileID: 11400000, guid: 30b0a3872f0784f43a48674aaa3aabb6, type: 2}
 --- !u!1 &1195290173
 GameObject:
@@ -662,13 +661,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSpawn: {fileID: 676719922}
   _itemEndPoint: {fileID: 1195290174}
-  _itemsFallMultiplier: 0.4
+  _itemsFallMultiplier: 0.6
   _bonusPrefab: {fileID: 2113601460213947236, guid: 1f79eacb249762c4eb136605aae01cb1, type: 3}
   _obstaclePrefab: {fileID: 3473986928393435057, guid: b810ea5a99ec8ca44948b7fde0263d0d, type: 3}
   _healthText: {fileID: 1029079647}
   _scoreText: {fileID: 1583683523}
-  _itemsCount: 10
-  _spawnDelaySecs: 1
+  _itemsCount: 12
+  _spawnDelaySecs: 0.5
   _respawnDelaySec: 1
   _itemSpawnPoints:
   - {fileID: 852157534}
@@ -823,6 +822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0fd9b0c05d457a9b44ab21d8402a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _service: {fileID: 5187910850568942101, guid: cd93b47b5b94f834c84693a22566a928, type: 3}
 --- !u!1 &1583683521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1077,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Resources.Scripts.MonoBehaviours.Bootstrap, Assembly-CSharp
         m_MethodName: Init
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1868824564}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

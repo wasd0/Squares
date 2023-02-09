@@ -1,4 +1,4 @@
-using Resources.Data;
+using Resources.Scripts.Data;
 using Resources.Scripts.Models;
 using Resources.Scripts.Views;
 using UnityEngine;
