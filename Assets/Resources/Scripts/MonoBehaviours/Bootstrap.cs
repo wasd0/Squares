@@ -31,7 +31,7 @@ namespace Resources.Scripts.MonoBehaviours
             var healthView = player.GetComponent<HealthView>();
 
 
-            _player = new PlayerPresenter(playerView, spawnPos, _playerData.MovementSpeed);
+            _player = new PlayerPresenter(playerView, spawnPos, _playerData.MovementSpeed, _playerData.MinX, _playerData.MaxX);
             _score = new ScorePresenter(scoreView);
             _health = new HealthPresenter(healthView, _playerData.Health);
             _itemSpawner = new ItemSpawner(_sceneData);

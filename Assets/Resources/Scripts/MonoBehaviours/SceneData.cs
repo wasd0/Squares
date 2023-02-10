@@ -36,7 +36,7 @@ namespace Resources.Scripts.MonoBehaviours
         private int _itemsCount;
         
         [SerializeField]
-        [Range(0.5f, 10)]
+        [Range(.1f, 10)]
         private float _spawnDelaySecs;
 
         [SerializeField]

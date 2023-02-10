@@ -9,9 +9,9 @@ namespace Resources.Scripts.Presenters
         private readonly PlayerModel _model;
         private readonly PlayerView _view;
 
-        public PlayerPresenter(PlayerView view, Vector2 start, float movementSpeed)
+        public PlayerPresenter(PlayerView view, Vector2 start, float movementSpeed, float minX, float maxX)
         {
-            _model = new PlayerModel(start, movementSpeed);
+            _model = new PlayerModel(start, movementSpeed, minX, maxX);
             _view = view;
         }
 

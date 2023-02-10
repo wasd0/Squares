@@ -661,13 +661,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerSpawn: {fileID: 676719922}
   _itemEndPoint: {fileID: 1195290174}
-  _itemsFallMultiplier: 0.6
+  _itemsFallMultiplier: 0.5
   _bonusPrefab: {fileID: 2113601460213947236, guid: 1f79eacb249762c4eb136605aae01cb1, type: 3}
   _obstaclePrefab: {fileID: 3473986928393435057, guid: b810ea5a99ec8ca44948b7fde0263d0d, type: 3}
   _healthText: {fileID: 1029079647}
   _scoreText: {fileID: 1583683523}
   _itemsCount: 12
-  _spawnDelaySecs: 0.5
+  _spawnDelaySecs: 0.3
   _respawnDelaySec: 1
   _itemSpawnPoints:
   - {fileID: 852157534}
